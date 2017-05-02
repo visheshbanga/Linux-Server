@@ -22,7 +22,7 @@
 
 * Create a new user named grader
   * `sudo adduser grader`
-  * optional: install finger to check user has been added `apt-get install finger`
+  * optional: install finger to check user has been added `sudo apt-get install finger`
   * `finger grader`
   
 * Give the grader the permission to sudo
