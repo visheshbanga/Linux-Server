@@ -4,7 +4,7 @@
   * See project live at: [link][project url]
 
 #### Notes for reviewer:
-  * public Ip: 54.162.94.38
+  * Public IP: 54.162.94.38
   * SSH PORT: 2200
   * Full project URL: [link][project url]
   
@@ -27,8 +27,8 @@
   
 * Give the grader the permission to sudo
     * `sudo visudo`
-    * inside the file add `grader ALL=(ALL:ALL) ALL` below the root user under "#User privilege specification"
-    * save file (nano: `ctrl+x`, `Y`, Enter)
+    * Inside the file add `grader ALL=(ALL:ALL) ALL` below the root user under "#User privilege specification"
+    * Save file (nano: `ctrl+x`, `Y`, Enter)
     * Add grader to `/etc/suoders.d/` and type in `grader ALL=(ALL:ALL) ALL`
     * Add root to `/etc/suoders.d/` and type in `root ALL=(ALL:ALL) ALL`
 
@@ -38,10 +38,10 @@
 
 * Change the SSH port from 22 to 2200 and other SSH configuration required from [grading rubic](https://www.udacity.com/course/viewer#!/c-nd004/l-3573679011/m-3608778867)
     * `nano /etc/ssh/sshd_config` add `port 2200` below `port 22`
-    * while in the file also change `PermitRootLogin prohibit-password` to `PermitRootLogin no` to disallow root login
+    * While in the file also change `PermitRootLogin prohibit-password` to `PermitRootLogin no` to disallow root login
     * Change `PasswordAuthentication` from `no` to `yes`. We will change back after finishing SHH login setup
-    * save file (nano: `ctrl+x`, `Y`, Enter)
-    * restart ssh service `sudo service ssh reload`
+    * Save file (nano: `ctrl+x`, `Y`, Enter)
+    * Restart ssh service `sudo service ssh reload`
 
 * Create SSH keys and copy to server manually:
     * On your local machine generate SSH key pair with: `ssh-keygen`
@@ -72,22 +72,22 @@
     * Turn on firewall `sudo ufw enable`
     
 * Configure the local timezone to UTC
-    * run `sudo dpkg-reconfigure tzdata` from prompt: select none of the above. Then select UTC.
+    * Run `sudo dpkg-reconfigure tzdata` from prompt: select none of the above. Then select UTC.
 
 * Install and configure Apache to serve a Python mod_wsgi application
     * `sudo apt-get install apache2` Check if "It works!" at you public IP address given during setup.
-    * install mod_wsgi: `sudo apt-get install libapache2-mod-wsgi`
-    * configure Apache to handle requests using the WSGI module `sudo nano /etc/apache2/sites-enabled/000-default.conf`
-    * add `WSGIScriptAlias / /var/www/html/myapp.wsgi` before `</VirtualHost>` closing line
-    * save file (nano: `ctrl+x`, `Y`, Enter)
+    * Install mod_wsgi: `sudo apt-get install libapache2-mod-wsgi`
+    * Configure Apache to handle requests using the WSGI module `sudo nano /etc/apache2/sites-enabled/000-default.conf`
+    * Add `WSGIScriptAlias / /var/www/html/myapp.wsgi` before `</VirtualHost>` closing line
+    * Save file (nano: `ctrl+x`, `Y`, Enter)
     * Restart Apache `sudo apache2ctl restart`
     
  * Install git, clone and setup your Catalog App project (from your GitHub repository from earlier in the Nanodegree program) so that it functions correctly when visiting your server’s IP address in a browser. Remember to set this up appropriately so that your .git directory is not publicly accessible via a browser!
 
-* install git
+* Install git
     * `sudo apt-get install git`
 
-* install python dev and verify WSGI is enabled
+* Install python dev and verify WSGI is enabled
     * Install python-dev package `sudo apt-get install python-dev`
     * Verify wsgi is enabled `sudo a2enmod wsgi`
 * Create flask app taken from [digitalocean](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
@@ -109,7 +109,7 @@
     app.run()
     ```
 
-* install flask
+* Install flask
     * `sudo apt-get install python-pip`
     * `sudo pip install virtualenv `
     * `sudo virtualenv venv`
@@ -121,7 +121,7 @@
     
 * Configure And Enable New Virtual Host
     * Create host config file `sudo nano /etc/apache2/sites-available/catalog.conf`
-    * paste the following:
+    * Paste the following:
     ```
     <VirtualHost *:80>
       ServerName 54.162.94.38
@@ -141,7 +141,7 @@
       CustomLog ${APACHE_LOG_DIR}/access.log combined
     </VirtualHost>
     ```
-    * save file(nano: `ctrl+x`, `Y`, Enter)
+    * Save file (nano: `ctrl+x`, `Y`, Enter)
     * Enable `sudo a2ensite catalog`
 
 * Create the wsgi file
@@ -159,21 +159,21 @@
   application.secret_key = 'Add your secret key'
   ```
 
-  * save file(nano: `ctrl+x`, `Y`, Enter)
+  * Save file (nano: `ctrl+x`, `Y`, Enter)
 
   * `sudo service apache2 restart`
 
 * Clone Github Repo
     * `sudo git clone https://github.com/visheshbanga/Item-Catalog`
-    * make sure you get hidden files iin move `shopt -s dotglob`. Move files from clone directory to catalog `mv /var/www/catalog/devpost/* /var/www/catalog/catalog/`
-    * remove clone directory `sudo rm -r devpost`
+    * Make sure you get hidden files iin move `shopt -s dotglob`. Move files from clone directory to catalog `mv /var/www/catalog/Item-Catalog/* /var/www/catalog/catalog/`
+    * Remove clone directory `sudo rm -r Item-Catalog`
 
-* make .git inaccessible
-    * from `cd /var/www/catalog/` create .htaccess file `sudo nano .htaccess`
-    * paste in `RedirectMatch 404 /\.git`
-    * save file(nano: `ctrl+x`, `Y`, Enter)
+* Make .git inaccessible
+    * From `cd /var/www/catalog/` create .htaccess file `sudo nano .htaccess`
+    * Paste in `RedirectMatch 404 /\.git`
+    * Save file(nano: `ctrl+x`, `Y`, Enter)
 
-* install dependencies:
+* Install dependencies:
     * `source venv/bin/activate`
     * `pip install httplib2`
     * `pip install requests`
