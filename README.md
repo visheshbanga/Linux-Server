@@ -33,10 +33,8 @@
     * Add root to `/etc/suoders.d/` and type in `root ALL=(ALL:ALL) ALL`
 
 * Update all currently installed packages
-
-* Update all currently installed packages
     * Find updates: `sudo apt-get update`
-    * Install updates: `sudo sudo apt-get upgrade` Hit Y for yes and give yourself a break while it installs.
+    * Install updates: `sudo apt-get upgrade`.
 
 * Change the SSH port from 22 to 2200 and other SSH configuration required from [grading rubic](https://www.udacity.com/course/viewer#!/c-nd004/l-3573679011/m-3608778867)
     * `nano /etc/ssh/sshd_config` add `port 2200` below `port 22`
