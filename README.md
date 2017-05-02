@@ -45,20 +45,20 @@
 
 * Create SSH keys and copy to server manually:
     * On your local machine generate SSH key pair with: `ssh-keygen`
-    * Save your keygen file in your ssh directory `/home/ubuntu/.ssh/` example full file path that could be used: `/home/ubuntu/.ssh/item-catalog`
+    * Save your keygen file in your ssh directory `/home/ubuntu/.ssh/` example full file path that could be used: `/home/ubuntu/.ssh/item-catalog` (item catalog is the name of project).
     * You can add a password to use incase your keygen file gets compromised (you will be prompted to enter this password when you connect with key pair)
     * Change the SSH port number configuration in Amazon lightsail in networking tab to 2200.
     * Login into grader account using password set during user creation `ssh -v grader@*Public-IP-Address* -p 2200`
     * Make .ssh directory `mkdir .ssh`
     * Make file to store key`touch .ssh/authorized_keys`
-    * On your local machine read contents of the public key `cat .ssh/project5.pub`
+    * On your local machine read contents of the public key `cat .ssh/item-catalog.pub`
     * Copy the key and paste in the file you just created in grader `nano
 .ssh/authorized_keys` paste contents (ctr+v)
     * Save file (nano: `ctrl+x`, `Y`, Enter)
     * Set permissions for files: `chmod 700 .ssh` `chmod 644 .ssh/authorized_keys`
     * Change `PasswordAuthentication` from `yes` back to `no`.  `nano /etc/ssh/sshd_config`
     * Save file(nano: `ctrl+x`, `Y`, Enter)
-    * Login with key pair: `ssh grader@Public-IP-Address* -p 2200 -i ~/.ssh/project5`
+    * Login with key pair: `ssh grader@Public-IP-Address* -p 2200 -i ~/.ssh/item-catalog`
     * Alternatively you can use a shorter method found [here](https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server)
 
 * Configure the Uncomplicated Firewall (UFW) to only allow  incoming connections for SSH (port 2200), HTTP (port 80),  and NTP (port 123)
