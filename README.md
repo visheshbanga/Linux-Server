@@ -4,7 +4,7 @@
   * See project live at: [link][project url]
 
 #### Notes for reviewer:
-  * Public IP: 54.162.94.38
+  * Public IP: 34.201.26.158
   * SSH PORT: 2200
   * Full project URL: [link][project url]
   
@@ -18,7 +18,7 @@
   * You will get your respective public IP address.
   * Download the default key-pair and copy to /.ssh folder.
   * Open your terminal and type in chmod 600 ~/.ssh/key.pem
-  * Now Use the command `ssh -i ~/.ssh/key.pem ubuntu@54.162.94.38` to create the instance on your terminal
+  * Now Use the command `ssh -i ~/.ssh/key.pem ubuntu@34.201.26.158` to create the instance on your terminal
 
 * Create a new user named grader
   * `sudo adduser grader`
@@ -124,8 +124,8 @@
     * Paste the following:
     ```
     <VirtualHost *:80>
-      ServerName 54.162.94.38
-      ServerAdmin admin@54.162.94.38
+      ServerName 34.201.26.158
+      ServerAdmin admin@34.201.26.158
       WSGIScriptAlias / /var/www/catalog/catalog.wsgi
       <Directory /var/www/catalog/catalog/>
           Order allow,deny
@@ -180,7 +180,7 @@
     * `sudo pip install --upgrade oauth2client`
     * `sudo pip install sqlalchemy`
     * `pip install Flask-SQLAlchemy`
-    * `sudo pip install python-psycopg2`
+    * `pip install psycopg2`
     * If you used any other packages in your project be sure to install those as well.
 
 
@@ -195,7 +195,7 @@
     * Add catalog user `sudo adduser catalog`
     * Login as postgres super user `sudo su - postgres`
     * Enter postgres `psql`
-    * Create user catalog `CREATE USER catalog WITH PASSWORD 'db-password';`
+    * Create user catalog `CREATE USER catalog WITH PASSWORD 'dbpassword';`
     * Change role of user catalog to creatDB `ALTER USER catalog CREATEDB;`
     * List all users and roles to verify `\du`
     * Create new DB "catalog" with own of catalog `CREATE DATABASE catalog WITH OWNER catalog;`
@@ -217,4 +217,4 @@
     * restart apache server `sudo service apache2 restart`
     * in your google developer console add your host name and IP address to Authorized Javascript origins. And add YOURHOSTNAME/ouath2callback to the Authorized redirect URIs.
  
-[project url]: http://ec2-54-162-94-38.compute-1.amazonaws.com
+[project url]: ec2-34-201-26-158.compute-1.amazonaws.com
