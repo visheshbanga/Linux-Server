@@ -189,7 +189,7 @@
     * install additional models `sudo apt-get install postgresql-contrib`
     * By default no remote connections are [not allowed](http://www.postgresql.org/docs/9.2/static/auth-pg-hba-conf.html)
     * config database_setup.py `sudo nano database_setup.py`
-    * `engine = create_engine('postgresql://catalog:db-password@localhost/catalog')`
+    * `engine = create_engine('postgresql://catalog:dbpassword@localhost/catalog')`
     * Repeat for project.py
     * Copy your main project.py file into the __init__.py file `mv project.py __init__.py`
     * Add catalog user `sudo adduser catalog`
