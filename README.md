@@ -80,7 +80,7 @@
     * Configure Apache to handle requests using the WSGI module `sudo nano /etc/apache2/sites-enabled/000-default.conf`
     * Add `WSGIScriptAlias / /var/www/html/myapp.wsgi` before `</VirtualHost>` closing line
     * Save file (nano: `ctrl+x`, `Y`, Enter)
-    * Restart Apache `sudo apache2 restart`
+    * Restart Apache `sudo service apache2 restart`
     
  * Install git, clone and setup your Catalog App project (from your GitHub repository from earlier in the Nanodegree program) so that it functions correctly when visiting your server’s IP address in a browser. Remember to set this up appropriately so that your .git directory is not publicly accessible via a browser!
 
