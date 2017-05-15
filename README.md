@@ -80,7 +80,7 @@
     * Configure Apache to handle requests using the WSGI module `sudo nano /etc/apache2/sites-enabled/000-default.conf`
     * Add `WSGIScriptAlias / /var/www/html/myapp.wsgi` before `</VirtualHost>` closing line
     * Save file (nano: `ctrl+x`, `Y`, Enter)
-    * Restart Apache `sudo apache2ctl restart`
+    * Restart Apache `sudo apache2 restart`
     
  * Install git, clone and setup your Catalog App project (from your GitHub repository from earlier in the Nanodegree program) so that it functions correctly when visiting your server’s IP address in a browser. Remember to set this up appropriately so that your .git directory is not publicly accessible via a browser!
 
@@ -189,7 +189,7 @@
     * install additional models `sudo apt-get install postgresql-contrib`
     * By default no remote connections are [not allowed](http://www.postgresql.org/docs/9.2/static/auth-pg-hba-conf.html)
     * config database_setup.py `sudo nano database_setup.py`
-    * `python engine = create_engine('postgresql://catalog:db-password@localhost/catalog')`
+    * `engine = create_engine('postgresql://catalog:db-password@localhost/catalog')`
     * Repeat for project.py
     * Copy your main project.py file into the __init__.py file `mv project.py __init__.py`
     * Add catalog user `sudo adduser catalog`
