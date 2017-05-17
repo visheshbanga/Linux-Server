@@ -217,4 +217,4 @@
     * restart apache server `sudo service apache2 restart`
     * in your google developer console add your host name and IP address to Authorized Javascript origins. And add YOURHOSTNAME/ouath2callback to the Authorized redirect URIs.
  
-[project url]: ec2-34-201-26-158.compute-1.amazonaws.com
+[project url]: http://ec2-34-201-26-158.compute-1.amazonaws.com
